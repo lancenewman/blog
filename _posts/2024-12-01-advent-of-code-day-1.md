@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Advent of Code Day 1"
-date:   2024-12-01 15:00:49 -0500
+title: "Advent of Code Day 1"
+date: 2024-12-01 15:00:49 -0500
 categories: advent-of-code programming
 ---
 
@@ -36,9 +36,9 @@ end
 p "part 2: #{similarity_score}"
 ```
 
-As usual, day 1 was a great warm-up to get back into the logic puzzle programming 
-space. When I was first learning Ruby, I was amazed at how many times these 
-puzzles were solvable in one line using all of the great methods the 
+As usual, day 1 was a great warm-up to get back into the logic puzzle programming
+space. When I was first learning Ruby, I was amazed at how many times these
+puzzles were solvable in one line using all of the great methods the
 [Enumerable](https://ruby-doc.org/core-2.7.2/Enumerable.html) mixin. The code
 for part one isn't the most readable, but I always have a good time coming up
 with clever method chains like this.
@@ -46,4 +46,4 @@ with clever method chains like this.
 Today's cool method comes from part 2 – [`Enumerable#tally`](https://ruby-doc.org/core-2.7.2/Enumerable.html#method-i-tally). This can be used to quickly identify the number of times
 that each element appears in an array. It made the bulk of the work for part 2
 relatively easy. I didn't spend as much time code-golfing part 2 because my
-newborn started to wake up. 
+newborn started to wake up.
