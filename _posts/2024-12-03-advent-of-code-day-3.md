@@ -88,10 +88,22 @@ fragments[1..-1].each do |fragment|
 end
 ```
 
-There's probably a way to do this using a more complicated regular expression
-such that all of the processing can be completed with a single `#scan` call, but
-I've found that trying to do more than one or two things with a single regex
-introduces a level of complexity that typically isn't worth it.
+When I first implemented this, the `operable_memory += fragment_parts[1]` was
+throwing an exception because `fragment_parts[1]` was `nil`. This happened when
+the corrupted memory included consecutive `don't()` instructions. Attempting to
+split these fragments on `do()` resulted in an array with only one element,
+causing the string concatenation to fail. It was a quick fix to add the `next if`
+guard clause once I figured out what was going on.
+
+This edge case is a quirk of my implementation - the only guidance given by the
+puzzle text on consecutive instructions is that only the most recent `do()` or
+`don't()` instruction is relevant. There's probably a way to do this using a more
+complicated regular expression such that all of the processing can be completed
+with a single `#scan` call, avoiding string splitting and the bug that it caused.
+However, I've found that trying to do more than one or two things with a single
+regex introduces a level of complexity that typically isn't worth it. Even though
+string splitting caused a bug, identifying and fixing it still took less time than
+it would've to come up with a "smarter" solution.
 
 ## Solution
 
